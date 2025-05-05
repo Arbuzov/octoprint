@@ -23,7 +23,7 @@ OctoPrint is the snappy web interface for your 3D printer that allows you to con
 | Key | Type | Default | Description |
 |-----|------|---------|-------------|
 | affinity | object | `{}` |  |
-| config.overlay | string | `"# This is a config overlay file for OctoPrint. It is used to override the default configuration\n# with custom settings. The settings in this file will be merged with the default configuration.\n# \n# For more information on the available settings, see:\n# https://docs.octoprint.org/en/master/configuration.html\n#\n# Note: This file is not used by OctoPrint directly. It is used by the Helm chart to generate\n# the final configuration file."` |  |
+| config.overlay | string | `"# This is a config overlay file for OctoPrint. It is used to override the default configuration with custom settings."` |  |
 | device | string | `"/dev/ttyACM0"` |  |
 | fullnameOverride | string | `""` |  |
 | image.pullPolicy | string | `"IfNotPresent"` |  |

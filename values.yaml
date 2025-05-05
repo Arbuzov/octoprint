@@ -110,11 +110,4 @@ resourcesPreset: 'micro'
 device: "/dev/ttyACM0"
 config:
   overlay: |-
-    # This is a config overlay file for OctoPrint. It is used to override the default configuration
-    # with custom settings. The settings in this file will be merged with the default configuration.
-    # 
-    # For more information on the available settings, see:
-    # https://docs.octoprint.org/en/master/configuration.html
-    #
-    # Note: This file is not used by OctoPrint directly. It is used by the Helm chart to generate
-    # the final configuration file.
+    # This is a config overlay file for OctoPrint. It is used to override the default configuration with custom settings.
