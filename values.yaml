@@ -6,7 +6,7 @@ replicaCount: 1
 
 image:
   repository: octoprint/octoprint
-  tag: 1.4.0
+  tag: 1.11.0
   pullPolicy: IfNotPresent
 
 imagePullSecrets: []
@@ -85,5 +85,36 @@ persistence:
   accessModes:
     - ReadWriteOnce
   size: 1Gi
-
+startupProbe:
+  enabled: true
+  initialDelaySeconds: 30
+  periodSeconds: 10
+  timeoutSeconds: 5
+  successThreshold: 1
+  failureThreshold: 3
+livenessProbe:
+  enabled: true
+  initialDelaySeconds: 30
+  periodSeconds: 10
+  timeoutSeconds: 5
+  successThreshold: 1
+  failureThreshold: 3
+readinessProbe:
+  enabled: true
+  initialDelaySeconds: 30
+  periodSeconds: 10
+  timeoutSeconds: 5
+  successThreshold: 1
+  failureThreshold: 3
+resourcesPreset: 'micro'
 device: "/dev/ttyACM0"
+config:
+  overlay: |-
+    # This is a config overlay file for OctoPrint. It is used to override the default configuration
+    # with custom settings. The settings in this file will be merged with the default configuration.
+    # 
+    # For more information on the available settings, see:
+    # https://docs.octoprint.org/en/master/configuration.html
+    #
+    # Note: This file is not used by OctoPrint directly. It is used by the Helm chart to generate
+    # the final configuration file.
