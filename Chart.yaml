@@ -6,7 +6,7 @@ version: 0.2.1
 home: https://octoprint.org/
 icon: https://octoprint.org/assets/img/logo.png
 sources:
-  - https://github.com/foosel/OctoPrint
+  - https://github.com/Arbuzov/octoprint
   - https://hub.docker.com/r/octoprint/octoprint
 maintainers:
   - name: Gavin Mogan
