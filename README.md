@@ -15,7 +15,7 @@ OctoPrint is the snappy web interface for your 3D printer that allows you to con
 
 ## Source Code
 
-* <https://github.com/foosel/OctoPrint>
+* <https://github.com/Arbuzov/octoprint>
 * <https://hub.docker.com/r/octoprint/octoprint>
 
 ## Values
