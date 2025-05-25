@@ -1,4 +1,4 @@
-repositoryID: 75e1d77c-61ff-4d3d-a0b6-9aab2c1737d2
+repositoryID: bdc3d3cf-8d51-4bde-8b7a-b5ea8e807af3
 name: octoprint
 displayName: OctoPrint Charts
 description: Helm charts for deploying OctoPrint on Kubernetes
