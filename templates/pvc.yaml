@@ -18,6 +18,26 @@ spec:
     requests:
       storage: {{ .Values.persistence.size | quote }}
   storageClassName: {{ .Values.persistence.storageClassName }}
+---
+apiVersion: v1
+kind: PersistentVolumeClaim
+metadata:
+  name: {{ include "octoprint.fullname" . }}-plugins
+  labels:
+{{ include "octoprint.labels" . | indent 4 }}
+  {{- with .Values.persistence.annotations  }}
+  annotations:
+{{ toYaml . | indent 4 }}
+  {{- end }}
+spec:
+  accessModes:
+    {{- range .Values.persistence.accessModes }}
+    - {{ . | quote }}
+    {{- end }}
+  resources:
+    requests:
+      storage: {{ .Values.persistence.size | quote }}
+  storageClassName: {{ .Values.persistence.storageClassName }}
 {{- end -}}
 
 

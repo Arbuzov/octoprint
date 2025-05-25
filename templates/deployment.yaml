@@ -94,6 +94,8 @@ spec:
               mountPath: /octoprint
             - name: data
               mountPath: /octoprint/octoprint
+            - name: plugins
+              mountPath: /octoprint/plugins
             - name: ttyacm0
               mountPath: /dev/ttyACM0
       {{- with .Values.nodeSelector }}
@@ -123,6 +125,13 @@ spec:
           {{- if .Values.persistence.enabled }}
           persistentVolumeClaim:
             claimName: {{ .Values.persistence.existingClaim | default (include "octoprint.fullname" .) }}
+          {{- else }}
+          emptyDir: {}
+          {{- end }}
+        - name: plugins
+          {{- if .Values.persistence.enabled }}
+          persistentVolumeClaim:
+            claimName: {{ .Values.persistence.existingClaim | default (include "octoprint.fullname" .) }}-plugins
           {{- else }}
           emptyDir: {}
           {{- end }}
