@@ -13,35 +13,35 @@ on:
 jobs:
   release:
     runs-on: ubuntu-latest
+    permissions:
+      contents: write
+      pages: write
 
     steps:
-      - name: Checkout
+      - name: Checkout repository
         uses: actions/checkout@v3
 
       - name: Set up Helm
         uses: azure/setup-helm@v3
 
-      - name: Package Helm Chart
+      - name: Create chart package
         run: |
-          mkdir -p .cr-release-packages
-          helm package . --destination .cr-release-packages
+          mkdir -p .deploy
+          helm package . -d .deploy
 
-      - name: Checkout gh-pages
+      - name: Checkout gh-pages branch
         uses: actions/checkout@v3
         with:
           ref: gh-pages
           path: gh-pages
 
-      - name: Update Helm Repo Index
+      - name: Copy chart and rebuild index
         run: |
-          cp .cr-release-packages/*.tgz gh-pages/
-          helm repo index gh-pages --url https://arbuzov.github.io/octoprint
-
-      - name: Commit and Push to gh-pages
-        run: |
+          cp .deploy/*.tgz gh-pages/
           cd gh-pages
+          helm repo index . --url https://arbuzov.github.io/octoprint
           git config user.name "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"
           git add .
-          git commit -m "Publish Helm chart"
+          git commit -m "Update Helm chart"
           git push origin gh-pages
