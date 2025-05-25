@@ -4,3 +4,6 @@ displayName: OctoPrint Charts
 description: Helm charts for deploying OctoPrint on Kubernetes
 type: helm
 url: https://arbuzov.github.io/octoprint
+owners:
+  - name: Serge Arbuzov
+    email: info@whitediver.com
