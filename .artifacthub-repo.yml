@@ -1,6 +1,6 @@
-repositoryID: <UUID from Artifact Hub>
+repositoryID: 75e1d77c-61ff-4d3d-a0b6-9aab2c1737d2
 name: octoprint
-displayName: octoprint
-description: Helm chart to deploy Cotoprint
+displayName: OctoPrint Charts
+description: Helm charts for deploying OctoPrint on Kubernetes
 type: helm
 url: https://arbuzov.github.io/octoprint
