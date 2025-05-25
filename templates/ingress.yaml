@@ -4,7 +4,7 @@ apiVersion: {{ include "common.capabilities.ingress.apiVersion" . }}
 kind: Ingress
 metadata:
   name: {{ $fullName }}
-  namespace: {{ include "common.names.namespace" . | quote }}
+  namespace: {{ include "octoprint.namespace" . | quote }}
   labels:
 {{ include "octoprint.labels" . | indent 4 }}
   {{- with .Values.ingress.annotations }}
