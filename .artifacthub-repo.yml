@@ -1,0 +1,6 @@
+repositoryID: <UUID from Artifact Hub>
+name: octoprint
+displayName: octoprint
+description: Helm chart to deploy Cotoprint
+type: helm
+url: https://arbuzov.github.io/octoprint
