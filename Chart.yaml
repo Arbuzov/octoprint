@@ -4,7 +4,7 @@ description: OctoPrint is the snappy web interface for your 3D printer that allo
 name: octoprint
 version: 0.2.1
 home: https://octoprint.org/
-icon: https://octoprint.org/assets/img/logo.png
+icon: https://arbuzov.github.io/octoprint/logo.png
 sources:
   - https://github.com/Arbuzov/octoprint
   - https://hub.docker.com/r/octoprint/octoprint
