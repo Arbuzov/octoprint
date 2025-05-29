@@ -6,7 +6,7 @@ entries:
       licenses: Apache-2.0
     apiVersion: v2
     appVersion: 2.30.2
-    created: "2025-05-25T16:11:20.753549235Z"
+    created: "2025-05-29T13:02:34.565418815Z"
     description: A Library Helm Chart for grouping common logic between bitnami charts.
       This chart is not deployable by itself.
     digest: 37adbe3f259e25f54da4703671149957f08dcf7897088475e42a6ede646cd67e
@@ -31,7 +31,28 @@ entries:
   octoprint:
   - apiVersion: v1
     appVersion: 1.11.0
-    created: "2025-05-25T16:11:20.752780665Z"
+    created: "2025-05-29T13:02:34.564639753Z"
+    description: OctoPrint is the snappy web interface for your 3D printer that allows
+      you to control and monitor all aspects of your printer and print jobs, right
+      from your browser.
+    digest: 0c3b36c23ef9a92b941fefdd3df1d339e64b3998c0c88ea411737bd2e9c7cc1a
+    home: https://octoprint.org/
+    icon: https://arbuzov.github.io/octoprint/logo.png
+    maintainers:
+    - email: helm@gavinmogan.com
+      name: Gavin Mogan
+    - email: info@whitediver.com
+      name: Serge Arbuzov
+    name: octoprint
+    sources:
+    - https://github.com/Arbuzov/octoprint
+    - https://hub.docker.com/r/octoprint/octoprint
+    urls:
+    - https://arbuzov.github.io/octoprint/octoprint-0.2.2.tgz
+    version: 0.2.2
+  - apiVersion: v1
+    appVersion: 1.11.0
+    created: "2025-05-29T13:02:34.559561085Z"
     description: OctoPrint is the snappy web interface for your 3D printer that allows
       you to control and monitor all aspects of your printer and print jobs, right
       from your browser.
@@ -50,4 +71,4 @@ entries:
     urls:
     - https://arbuzov.github.io/octoprint/octoprint-0.2.1.tgz
     version: 0.2.1
-generated: "2025-05-25T16:11:20.746707559Z"
+generated: "2025-05-29T13:02:34.55329103Z"
