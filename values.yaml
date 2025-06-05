@@ -24,7 +24,7 @@ podSecurityContext: {}
   # fsGroup: 2000
 
 securityContext:
-  # uses privileged to accses the raw device
+  # uses privileged to access the raw device
   # not sure which caps are needed otherwise
   privileged: true
   # capabilities:
