@@ -1,6 +1,6 @@
 {{- if .Values.ingress.enabled -}}
 {{- $fullName := include "octoprint.fullname" . -}}
-apiVersion: {{ include "common.capabilities.ingress.apiVersion" . }}
+apiVersion: {{ include "octoprit.capabilities.ingress.apiVersion" . }}
 kind: Ingress
 metadata:
   name: {{ $fullName }}
