@@ -48,6 +48,7 @@ OctoPrint is the snappy web interface for your 3D printer that allows you to con
 | persistence.existingClaim | string | `nil` |  |
 | persistence.size | string | `"1Gi"` |  |
 | persistence.storageClassName | string | `nil` |  |
+| podAnnotations | object | `{}` |  |
 | podSecurityContext | object | `{}` |  |
 | readinessProbe.enabled | bool | `true` |  |
 | readinessProbe.failureThreshold | int | `3` |  |

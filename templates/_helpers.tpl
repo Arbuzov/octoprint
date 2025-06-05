@@ -149,3 +149,18 @@ Usage:
     {{- $value }}
 {{- end }}
 {{- end -}}
+
+{{/*
+Return a checksum of the configuration overlay so that deployments
+are rolled when the configuration changes.
+*/}}
+{{- define "octoprint.configChecksum" -}}
+{{- printf "%s" (toString .Values.config.overlay) | sha256sum -}}
+{{- end -}}
+
+{{/*
+Return the appropriate apiVersion for ingress resources.
+*/}}
+{{- define "octoprit.capabilities.ingress.apiVersion" -}}
+{{- print "networking.k8s.io/v1" -}}
+{{- end -}}
