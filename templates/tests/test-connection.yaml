@@ -10,6 +10,6 @@ spec:
   containers:
     - name: wget
       image: busybox
-      command: ['wget']
-      args:  ['--spider', '-q', 'http://{{ include "octoprint.fullname" . }}:{{ .Values.service.port }}']
+      command: ['wget', '-qO-']
+      args:  ['http://{{ include "octoprint.fullname" . }}:{{ .Values.service.port }}']
   restartPolicy: Never
