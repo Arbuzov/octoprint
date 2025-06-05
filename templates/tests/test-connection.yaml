@@ -11,5 +11,5 @@ spec:
     - name: wget
       image: busybox
       command: ['wget']
-      args:  ['{{ include "octoprint.fullname" . }}:{{ .Values.service.port }}']
+      args:  ['--spider', '-q', 'http://{{ include "octoprint.fullname" . }}:{{ .Values.service.port }}']
   restartPolicy: Never
