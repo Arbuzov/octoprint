@@ -18,6 +18,15 @@ OctoPrint is the snappy web interface for your 3D printer that allows you to con
 * <https://github.com/Arbuzov/octoprint>
 * <https://hub.docker.com/r/octoprint/octoprint>
 
+## Helm Repository
+
+Add this chart repository with:
+
+```sh
+helm repo add octoprint https://arbuzov.github.io/octoprint
+helm repo update
+```
+
 ## Values
 
 | Key | Type | Default | Description |

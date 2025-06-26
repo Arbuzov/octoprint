@@ -37,6 +37,7 @@ jobs:
 
       - name: Copy chart and rebuild index
         run: |
+          cp index.html gh-pages/
           cp .deploy/*.tgz gh-pages/
           cd gh-pages
           helm repo index . --url https://arbuzov.github.io/octoprint
