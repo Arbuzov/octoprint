@@ -3,11 +3,11 @@ entries:
   octoprint:
   - apiVersion: v1
     appVersion: 1.11.0
-    created: "2025-06-27T20:51:25.926271527Z"
+    created: "2025-06-27T21:12:44.784525803Z"
     description: OctoPrint is the snappy web interface for your 3D printer that allows
       you to control and monitor all aspects of your printer and print jobs, right
       from your browser.
-    digest: dff33d8cff2488ad19b2ce899efa3486c9a2a2c5dab9f95d0d2a701c739ffc83
+    digest: 96d1eb0c258146e0ea92a11c3c0dcb0288294903a0fbc204d5c00a6d647a49b8
     home: https://octoprint.org/
     icon: https://arbuzov.github.io/octoprint/logo.png
     maintainers:
@@ -22,4 +22,4 @@ entries:
     urls:
     - https://arbuzov.github.io/octoprint/octoprint-0.2.2.tgz
     version: 0.2.2
-generated: "2025-06-27T20:51:25.920098019Z"
+generated: "2025-06-27T21:12:44.773895828Z"
