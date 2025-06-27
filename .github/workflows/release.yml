@@ -29,15 +29,13 @@ jobs:
           mkdir -p .deploy
           helm package . -d .deploy
 
-      - name: Checkout gh-pages branch
-        uses: actions/checkout@v3
-        with:
-          ref: gh-pages
-          path: gh-pages
+      - name: Prepare gh-pages branch
+        run: |
+          git fetch origin gh-pages || true
+          git worktree add gh-pages gh-pages || git worktree add gh-pages -b gh-pages
 
       - name: Copy chart and rebuild index
         run: |
-          cp index.html gh-pages/
           cp .deploy/*.tgz gh-pages/
           cd gh-pages
           helm repo index . --url https://arbuzov.github.io/octoprint
