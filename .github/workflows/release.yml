@@ -19,6 +19,9 @@ jobs:
       - name: Set up Helm
         uses: azure/setup-helm@v3
 
+      - name: Lint chart
+        run: helm lint .
+
       - name: Create chart package
         run: |
           mkdir -p .deploy
@@ -29,11 +32,17 @@ jobs:
           git fetch origin gh-pages || true
           git worktree add gh-pages gh-pages || git worktree add gh-pages -b gh-pages
 
-      - name: Copy chart and rebuild index
+      - name: Copy chart package
+        run: cp .deploy/*.tgz gh-pages/
+
+      - name: Regenerate repository index
         run: |
-          cp .deploy/*.tgz gh-pages/
           cd gh-pages
           helm repo index . --url https://arbuzov.github.io/octoprint
+
+      - name: Commit and push to gh-pages
+        run: |
+          cd gh-pages
           git config user.name "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"
           git add .

@@ -1,10 +1,14 @@
-# octoprint
+# OctoPrint Helm Chart
 
-![Version: 0.2.2](https://img.shields.io/badge/Version-0.2.2-informational?style=flat-square) ![AppVersion: 1.11.0](https://img.shields.io/badge/AppVersion-1.11.0-informational?style=flat-square) [![Artifact Hub](https://img.shields.io/endpoint?url=https://artifacthub.io/badge/repository/octoprint)](https://artifacthub.io/packages/search?repo=octoprint)
+![Version: 0.2.2](https://img.shields.io/badge/Version-0.2.2-informational?style=flat-square)
+![AppVersion: 1.11.0](https://img.shields.io/badge/AppVersion-1.11.0-informational?style=flat-square)
+[![Artifact Hub](https://img.shields.io/endpoint?url=https://artifacthub.io/badge/repository/octoprint)](https://artifacthub.io/packages/search?repo=octoprint)
 
 OctoPrint is the snappy web interface for your 3D printer that allows you to control and monitor all aspects of your printer and print jobs, right from your browser.
 
 **Homepage:** <https://octoprint.org/>
+
+The original maintainers stopped updating this chart, so this repository revives it to keep deployments running with recent versions of OctoPrint and Helm. Contributions are welcome!
 
 ## Maintainers
 
@@ -27,7 +31,30 @@ helm repo add octoprint https://arbuzov.github.io/octoprint
 helm repo update
 ```
 
-## Values
+Install the chart with:
+
+```sh
+helm install my-octoprint octoprint/octoprint
+```
+
+Upgrade using:
+
+```sh
+helm repo update
+helm upgrade my-octoprint octoprint/octoprint
+```
+
+## Configuration
+
+All configurable values are documented in [`values.yaml`](./values.yaml). Key options include:
+
+- `persistence.enabled` – enable to store configuration on a Persistent Volume.
+- `ingress.enabled` – expose OctoPrint via an Ingress controller.
+- `resourcesPreset` – choose from predefined resource limits (e.g., `micro`, `small`).
+
+You can supply a custom `config.overlay` to merge with OctoPrint's default configuration.
+
+### Values
 
 | Key | Type | Default | Description |
 |-----|------|---------|-------------|
@@ -81,3 +108,25 @@ helm repo update
 | startupProbe.timeoutSeconds | int | `5` |  |
 | tolerations | list | `[]` |  |
 
+## Development
+
+Run basic checks before submitting changes:
+
+```sh
+helm lint .
+helm template test-release .
+```
+
+When creating a new release, package the chart and update the repository index:
+
+```sh
+helm package . -d .deploy
+helm repo index .deploy --url https://your.github.io/octoprint
+```
+
+The GitHub Actions release workflow lints the chart, packages it, regenerates the
+`index.yaml`, and automatically commits everything to the `gh-pages` branch.
+
+## License
+
+This project is licensed under the [MIT License](./LICENSE).
