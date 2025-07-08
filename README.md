@@ -14,8 +14,8 @@ The original maintainers stopped updating this chart, so this repository revives
 
 | Name | Email | Url |
 | ---- | ------ | --- |
-| Gavin Mogan | <helm@gavinmogan.com> |  |
-| Serge Arbuzov | <info@whitediver.com> |  |
+| Gavin Mogan | <helm@gavinmogan.com> | |
+| Serge Arbuzov | <info@whitediver.com> | |
 
 ## Source Code
 
@@ -31,10 +31,16 @@ helm repo add octoprint https://arbuzov.github.io/octoprint
 helm repo update
 ```
 
-Install the chart with:
+Install the chart with default settings:
 
 ```sh
 helm install my-octoprint octoprint/octoprint
+```
+
+Or provide your own values file:
+
+```sh
+helm install my-octoprint -f custom-values.yaml octoprint/octoprint
 ```
 
 Upgrade using:
@@ -54,7 +60,7 @@ All configurable values are documented in [`values.yaml`](./values.yaml). Key op
 
 You can supply a custom `config.overlay` to merge with OctoPrint's default configuration.
 
-### Values
+## Values
 
 | Key | Type | Default | Description |
 |-----|------|---------|-------------|
@@ -124,8 +130,7 @@ helm package . -d .deploy
 helm repo index .deploy --url https://your.github.io/octoprint
 ```
 
-The GitHub Actions release workflow lints the chart, packages it, regenerates the
-`index.yaml`, and automatically commits everything to the `gh-pages` branch.
+The GitHub Actions release workflow lints the chart, packages it, merges the `index.yaml` on the `gh-pages` branch, and automatically commits everything there. The values table above is generated via [helm-docs](https://github.com/norwoodj/helm-docs).
 
 ## License
 

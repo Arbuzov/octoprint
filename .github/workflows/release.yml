@@ -19,8 +19,16 @@ jobs:
       - name: Set up Helm
         uses: azure/setup-helm@v3
 
+      - name: Install helm-docs
+        run: |
+          curl -L https://github.com/norwoodj/helm-docs/releases/download/v1.13.1/helm-docs_1.13.1_Linux_x86_64.tar.gz | tar -xz
+          install helm-docs /usr/local/bin/helm-docs
+
       - name: Lint chart
         run: helm lint .
+
+      - name: Generate README
+        run: helm-docs
 
       - name: Create chart package
         run: |
@@ -38,7 +46,7 @@ jobs:
       - name: Regenerate repository index
         run: |
           cd gh-pages
-          helm repo index . --url https://arbuzov.github.io/octoprint
+          helm repo index . --merge index.yaml --url https://arbuzov.github.io/octoprint
 
       - name: Commit and push to gh-pages
         run: |
@@ -46,5 +54,9 @@ jobs:
           git config user.name "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"
           git add .
-          git commit -m "Update Helm chart"
-          git push origin gh-pages
+          if ! git diff --quiet --cached; then
+            git commit -m "Update Helm chart"
+            git push origin gh-pages
+          else
+            echo "No changes to commit"
+          fi
