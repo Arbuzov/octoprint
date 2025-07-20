@@ -3,7 +3,28 @@ entries:
   octoprint:
   - apiVersion: v1
     appVersion: 1.11.0
-    created: "2025-07-20T21:56:43.405098859Z"
+    created: "2025-07-20T22:08:54.536720022Z"
+    description: OctoPrint is the snappy web interface for your 3D printer that allows
+      you to control and monitor all aspects of your printer and print jobs, right
+      from your browser.
+    digest: 65dcee83a57bc234629da7ab11b554e2f7b855d8bd7e4e1bf623d912f21fde90
+    home: https://octoprint.org/
+    icon: https://arbuzov.github.io/octoprint/logo.png
+    maintainers:
+    - email: helm@gavinmogan.com
+      name: Gavin Mogan
+    - email: info@whitediver.com
+      name: Serge Arbuzov
+    name: octoprint
+    sources:
+    - https://github.com/Arbuzov/octoprint
+    - https://hub.docker.com/r/octoprint/octoprint
+    urls:
+    - https://arbuzov.github.io/octoprint/octoprint-0.3.4.tgz
+    version: 0.3.4
+  - apiVersion: v1
+    appVersion: 1.11.0
+    created: "2025-07-20T22:08:54.530180727Z"
     description: OctoPrint is the snappy web interface for your 3D printer that allows
       you to control and monitor all aspects of your printer and print jobs, right
       from your browser.
@@ -24,7 +45,7 @@ entries:
     version: 0.3.3
   - apiVersion: v1
     appVersion: 1.11.0
-    created: "2025-07-20T21:56:43.399120911Z"
+    created: "2025-07-20T22:08:54.523638781Z"
     description: OctoPrint is the snappy web interface for your 3D printer that allows
       you to control and monitor all aspects of your printer and print jobs, right
       from your browser.
@@ -45,7 +66,7 @@ entries:
     version: 0.2.3
   - apiVersion: v1
     appVersion: 1.11.0
-    created: "2025-07-20T21:56:43.393986939Z"
+    created: "2025-07-20T22:08:54.518204357Z"
     description: OctoPrint is the snappy web interface for your 3D printer that allows
       you to control and monitor all aspects of your printer and print jobs, right
       from your browser.
@@ -64,4 +85,4 @@ entries:
     urls:
     - https://arbuzov.github.io/octoprint/octoprint-0.2.2.tgz
     version: 0.2.2
-generated: "2025-07-20T21:56:43.3875003Z"
+generated: "2025-07-20T22:08:54.51185015Z"
