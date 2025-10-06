@@ -36,6 +36,9 @@ securityContext:
   # runAsNonRoot: true
   # runAsUser: 1000
 
+# Set the pod priority class
+priorityClassName:
+
 service:
   type: ClusterIP
   port: 5000
