@@ -36,6 +36,9 @@ securityContext:
   # runAsNonRoot: true
   # runAsUser: 1000
 
+initContainers: []
+  # Specify initContainers as list, which also defines the execution order
+
 service:
   type: ClusterIP
   port: 5000
