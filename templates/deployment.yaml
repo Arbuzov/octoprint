@@ -101,8 +101,13 @@ spec:
               mountPath: /octoprint/octoprint
             - name: plugins
               mountPath: /octoprint/plugins
+            {{- if .Values.hostDev.enabled }}
+            - name: host-dev
+              mountPath: {{ .Values.hostDev.mountPath }}
+            {{- else }}
             - name: ttyacm0
               mountPath: /dev/ttyACM0
+            {{- end }}
       {{- with .Values.nodeSelector }}
       nodeSelector:
         {{- toYaml . | nindent 8 }}
@@ -140,6 +145,13 @@ spec:
           {{- else }}
           emptyDir: {}
           {{- end }}
+        {{- if .Values.hostDev.enabled }}
+        - name: host-dev
+          hostPath:
+            path: {{ .Values.hostDev.hostPath | quote }}
+            type: Directory
+        {{- else }}
         - name: ttyacm0
           hostPath:
             path: {{ .Values.device | quote }}
+        {{- end }}

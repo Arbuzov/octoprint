@@ -108,7 +108,19 @@ readinessProbe:
   successThreshold: 1
   failureThreshold: 3
 resourcesPreset: 'micro'
+# Single USB device passthrough (legacy). Bind-mounts this host path onto the
+# container's /dev/ttyACM0. NOTE: this is a point-in-time mount -- a device that
+# (re)appears on the host after the pod has started is NOT picked up until the
+# pod is recreated. Ignored when hostDev.enabled is true.
 device: "/dev/ttyACM0"
+# Live host /dev passthrough. When enabled, bind-mounts the host's /dev directory
+# (devtmpfs) into the container instead of the single `device` above, so USB
+# serial adapters that are hot-plugged after the pod starts become visible
+# without recreating the pod. Requires securityContext.privileged: true.
+hostDev:
+  enabled: false
+  hostPath: /dev
+  mountPath: /dev
 config:
   overlay: |-
     # This is a config overlay file for OctoPrint. It is used to override the default configuration with custom settings.
