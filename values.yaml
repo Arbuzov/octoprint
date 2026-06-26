@@ -39,6 +39,14 @@ securityContext:
 # Set the pod priority class
 priorityClassName:
 
+initContainers: []
+  # Specify initContainers as list, which also defines the execution order
+
+# Extra volume mounts added to the octoprint container
+extraVolumeMounts: []
+# Extra volumes added to the pod
+extraVolumes: []
+
 service:
   type: ClusterIP
   port: 5000
