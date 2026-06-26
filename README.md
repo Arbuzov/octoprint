@@ -1,3 +1,17 @@
+> [!IMPORTANT]
+> **This repository is archived and read-only.** Development of the OctoPrint Helm
+> chart now continues in
+> [Arbuzov/home-cluster-helm](https://github.com/Arbuzov/home-cluster-helm)
+> under the path `arbuzov/apps/octoprint`.
+>
+> The chart is published from the new Helm repository:
+>
+> ```sh
+> helm repo add home-cluster-helm https://arbuzov.github.io/home-cluster-helm/
+> helm repo update
+> helm install my-octoprint home-cluster-helm/octoprint
+> ```
+
 # OctoPrint Helm Chart
 
 ![Version: 0.2.2](https://img.shields.io/badge/Version-0.2.2-informational?style=flat-square)
