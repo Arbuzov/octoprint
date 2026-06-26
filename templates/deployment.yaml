@@ -108,8 +108,8 @@ spec:
             - name: host-dev
               mountPath: {{ .Values.hostDev.mountPath }}
             {{- else }}
-            - name: ttyacm0
-              mountPath: /dev/ttyACM0
+            - name: printer
+              mountPath: {{ .Values.device }}
             {{- end }}
       {{- with .Values.nodeSelector }}
       nodeSelector:
@@ -154,7 +154,7 @@ spec:
             path: {{ .Values.hostDev.hostPath | quote }}
             type: Directory
         {{- else }}
-        - name: ttyacm0
+        - name: printer
           hostPath:
             path: {{ .Values.device | quote }}
         {{- end }}
